@@ -24,10 +24,14 @@ class DatabaseSchemaEditor(BaseDatabaseSchemaEditor):
     sql_create_pk = "ALTER TABLE %(table)s ADD CONSTRAINT %(name)s PRIMARY KEY (%(columns)s)"
     sql_delete_pk = "ALTER TABLE %(table)s DROP PRIMARY KEY"
 
+    sql_create_index = 'CREATE INDEX %(name)s ON %(table)s (%(columns)s)%(extra)s'
+
     def quote_value(self, value):
-        # Inner import to allow module to fail to load gracefully
-        import MySQLdb.converters
-        return MySQLdb.escape(value, MySQLdb.converters.conversions)
+        self.connection.ensure_connection()
+        quoted = self.connection.connection.escape(value, self.connection.connection.encoders)
+        if isinstance(value, str):
+            quoted = quoted.decode()
+        return quoted
 
     def _is_limited_data_type(self, field):
         db_type = field.db_type(self.connection)
@@ -61,9 +65,7 @@ class DatabaseSchemaEditor(BaseDatabaseSchemaEditor):
                 field.get_internal_type() == 'ForeignKey' and
                 field.db_constraint):
             return False
-        if self._is_limited_data_type(field):
-            return False
-        return create_index
+        return not self._is_limited_data_type(field) and create_index
 
     def _delete_composed_index(self, model, fields, *args):
         """

@@ -15,4 +15,15 @@ class Image(models.Model):
     comments = models.TextField()
 
     def __str__ (self):
-        return self.profpic
+        return self.profp
+        
+    def save_image(self):
+        self.save()
+
+    def update_image(self):
+        self.update()
+
+    def delete_image(self):
+        self.delete()
+
+    
