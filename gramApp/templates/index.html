@@ -7,9 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Insta-Replica</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-o53vJWv_0UjzBfOzYUhtDYW+PjzyciDJxpsKOYPAYjqT085q/1cq5FLXAZQ7Ay"crossorigin="anonymous">
+    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
 </head>
 <body>
-        <!-- {%block content%}
-        {%endblock%} -->
+        {%block content%}
+        <div id="wrapper">
+            <div class="container">
+                <div class="phones"></div>
+                <div class="form-data">
+                    <form action="">
+                        <div class="logo-">
+                            <img src="{%static 'images/logo-.png' alt='instagram'%}">
+                        </div>
+                        <input type="text" placeholder="Phone number, username, or email">
+                        <input type="password" placeholder="Password">
+                        <button class="form-btn" type="submit">Log in</button>
+                        <span class="has-separator">Or</span>
+                        <a class="facebook-login" href='#'>
+                            <i class="fab fa-facebook"></i>Log in with Facebook
+                        </a>
+                        <a class="password-reset" href="#">Forgot Password?</a>
+                    </form>
+                    <div class="sign-up">
+                        Don't have an Account? <a href="#">Sign up</a>
+                    </div>
+                    <div class="get-app">
+                        <span>Get the app.</span>
+                        <div class="badges">
+                            <img src="{%static 'images/appstore.png'%}">
+                            <img src="{%static 'images/googleplay.png'%}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endblock%}
 </body>
 </html>

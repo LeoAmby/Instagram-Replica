@@ -1,15 +1,16 @@
 .container-fluid {
-    background-color: white;
+    /* background-color: white;
     height:100px;
-    border: none;
+    border: none; */
     box-shadow: 5px 5px 5px gray;
+    
 }
-#logos{
-    /* display:grid;
-    grid-gap:10px;
-    justify-content:space-around;
-    align-content:space-evenly; */
-    display: inline-block;
+.container {
+    margin-left: 100px;
+}
+#form{
+    margin:20px;
+    
 }
 
 .logo {
@@ -17,14 +18,19 @@
     border-right: 1px solid black;
     margin-right: 20px;
     margin-top:10px;
-    padding: 5px;
+    padding: 10px;
 }
 
 .line {
     border-right: 2px solid black;
     height:50px;
+    position:relative;
 }
 
 .logo- {
     position:top;
+}
+
+.navbar-form {
+    float:right;
 }
