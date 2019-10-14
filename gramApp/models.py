@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+class Image(models.Models):
+    photo = models.ImageField(upload_to )
+    name = models.CharField(max_len = 30)
+    caption = models.CharField(max_len = 30)
+    profile = models.ForeignKey(profile)
+    comments = models.TextField
