@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from .models import Image, Profile
 
-# Create your views here.
+def home(request):
+    return render(request,'index.html')
+
+
+def userProfile(request):
+    return render(request, 'profile.html')
