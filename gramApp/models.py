@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Profile(models.Model):
     profPic = models.ImageField(upload_to = 'images/', blank = True, null=True)
@@ -11,7 +12,7 @@ class Image(models.Model):
     photo = models.ImageField(upload_to = 'images/', blank = True, null=True  )
     name = models.CharField(max_length = 30)
     caption = models.CharField(max_length = 30)
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE,)
+    profile = models.ForeignKey(User, on_delete=models.CASCADE,)
     comments = models.TextField()
 
     def __str__ (self):
