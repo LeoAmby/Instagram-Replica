@@ -1,47 +1,103 @@
 {%extends 'base.html'%}
+{%load bootstrap3%}
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Insta-Replica</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-o53vJWv_0UjzBfOzYUhtDYW+PjzyciDJxpsKOYPAYjqT085q/1cq5FLXAZQ7Ay"crossorigin="anonymous">
-    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+    {%block styles%}
+    {%bootstrap_css%}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-o53vJWv_0UjzBfOzYUhtDYW+PjzyciDJxpsKOYPAYjqT085q/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="{%static 'css/loginstyles.css'%}">
+    {%endblock%}
 </head>
+
 <body>
-        {%block content%}
-        <div id="wrapper">
-            <div class="container">
-                <div class="phones"></div>
-                <div class="form-data">
-                    <form action="">
-                        <div class="logo-">
-                            <img src="{%static 'images/logo-.png' alt='instagram'%}">
-                        </div>
-                        <input type="text" placeholder="Phone number, username, or email">
-                        <input type="password" placeholder="Password">
-                        <button class="form-btn" type="submit">Log in</button>
-                        <span class="has-separator">Or</span>
-                        <a class="facebook-login" href='#'>
-                            <i class="fab fa-facebook"></i>Log in with Facebook
-                        </a>
-                        <a class="password-reset" href="#">Forgot Password?</a>
-                    </form>
-                    <div class="sign-up">
-                        Don't have an Account? <a href="#">Sign up</a>
+    {%block content%}
+    <div id="wrapper">
+        <div class="container">
+            <div class="phones">
+                <img src="{%static 'images/phones.png'%}">
+            </div>
+            <div class="form-data">
+                <form action="">
+                    <div class="logo-">
+                        <img src="{%static 'images/logo-.png' alt='instagram'%}">
                     </div>
-                    <div class="get-app">
-                        <span>Get the app.</span>
-                        <div class="badges">
-                            <img src="{%static 'images/appstore.png'%}">
-                            <img src="{%static 'images/googleplay.png'%}">
-                        </div>
+                    <a class="facebook-login" href='#'>
+                        <i class="fab fa-facebook" ></i>Log in with Facebook
+                    </a>
+                    <span class="has-separator">OR</span>
+                    <input type="text" placeholder="Email">
+                    <input type="password" placeholder="Full Name">
+                    <input type="text" placeholder="Username">
+                    <input type="text" placeholder="Password">
+                    <button class="form-btn" type="submit">Sign up</button>
+                    
+                    
+                    <a class="password-reset" href="#">Forgot Password?</a>
+                </form>
+                <div class="sign-up">
+                    Have an Account? <a href="#">Sign in</a>
+                </div>
+                <div class="get-app">
+                    <span>Get the app.</span>
+                    <div class="badges">
+                        <img src="{%static 'images/appstore.png'%}">
+                        <img src="{%static 'images/googleplay.png'%}">
                     </div>
                 </div>
             </div>
         </div>
-        {%endblock%}
+        <footer>
+            <div class="container-fluid">
+                <nav class="footer-nav">
+                    <ul>
+                        <li>
+                            <a href='#'>ABOUT US</a>
+                        </li>
+                        <li>
+                            <a href='#'>SUPPORT</a>
+                        </li>
+                        <li>
+                            <a href='#'>PRESS</a>
+                        </li>
+                        <li>
+                            <a href='#'>API</a>
+                        </li>
+                        <li>
+                            <a href='#'>JOBS</a>
+                        </li>
+                        <li>
+                            <a href='#'>PRIVACY</a>
+                        </li>
+                        <li>
+                            <a href='#'>TERMS</a>
+                        </li>
+                        <li>
+                            <a href='#'>DIRECTORY</a>
+                        </li>
+                        <li>
+                            <a href='#'>PROFILES</a>
+                        </li>
+                        <li>
+                            <a href='#'>HASHTAGS</a>
+                        </li>
+                        <li>
+                            <a href='#'>LANGUAGE</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright">&copy; 2019 Insta-Replica </div>
+            </div>
+        </footer>
+    </div>
+    {%endblock%}
 </body>
+
 </html>
