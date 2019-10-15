@@ -14,6 +14,7 @@ class Image(models.Model):
     caption = models.CharField(max_length = 30)
     profile = models.ForeignKey(User, on_delete=models.CASCADE,)
     comments = models.TextField()
+    likes = models.IntegerField(default=0)
 
     def __str__ (self):
         return self.profp
