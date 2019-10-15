@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {%if title%}
-    <title>Insta-Replica - {{title}}</title>
+    <title>{{title}}</title>
     {%else%}
     <title>Insta-Replica</title>
     {%endif%}
@@ -22,6 +22,7 @@
 
 
     {%block scrips%}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     {%bootstrap_javascript%}
     {%endblock%}    
 </body>

@@ -25,7 +25,9 @@
                 <img src="{%static 'images/phones.png'%}">
             </div>
             <div class="form-data">
-                <form action="">
+                <form action="" method="post">
+                    {%csrf_token%}
+                    <!-- {%bootstrap_form form%} -->
                     <div class="logo-">
                         <img src="{%static 'images/logo-.png' alt='instagram'%}">
                     </div>
