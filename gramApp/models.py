@@ -17,7 +17,11 @@ class Image(models.Model):
     likes = models.IntegerField(default=0)
 
     def __str__ (self):
-        return self.profp
+        return self.name
+
+    
+    def __unicode__(self):
+        return self.name
         
     def save_image(self):
         self.save()

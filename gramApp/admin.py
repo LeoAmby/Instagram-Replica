@@ -7,7 +7,7 @@ class ProfileAdmin(admin.ModelAdmin):
 
 
 class ImageAdmin(admin.ModelAdmin):
-    pass
-
+    list_display = ['name', 'profile', 'likes']
+    search_fields = ['title', 'name', 'profile']
 admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Image, ImageAdmin)
