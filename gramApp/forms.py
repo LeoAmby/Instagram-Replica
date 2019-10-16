@@ -9,6 +9,6 @@ class signupForm(forms.Form):
         model = User
         fields = ('username', 'fullname', 'email', 'password1', 'password2')
 
-class loginForm(forms.Forms):
+class loginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField()

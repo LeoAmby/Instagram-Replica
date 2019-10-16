@@ -26,8 +26,9 @@
             </div>
             <div class="form-data">
                 
-                <form action="" method="post">
+                <form action="{%path 'home'%}" method="post">
                     {%csrf_token%}
+                    {%bootstrap_form signupForm %}
                     <div class="logo-">
                         <img src="{%static 'images/logo-.png' alt='instagram'%}">
                     </div>
