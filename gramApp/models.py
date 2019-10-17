@@ -5,16 +5,17 @@ from django.dispatch import receiver
 
 
 class Profile(models.Model):
+    
     profPic = models.ImageField(upload_to = 'images/', blank = True, null=True)
     bio = models.TextField()
     email_confirmed = models.BooleanField(default=False)
 
 
-    @receiver(post_save, sender=User)
-    def update_user_profile(self, sender, instance, created, **kwargs):
-        if created:
-            Profile.objects.create(user=instance)
-        instance.profile.save()
+    # @receiver(post_save, sender=User)
+    # def update_user_profile(self, sender, instance, created, **kwargs):
+    #     if created:
+    #         Profile.objects.create(user=instance)
+    #     instance.profile.save()
 
     def __str__(self):
         return self.name

@@ -1,0 +1,28 @@
+{%extends "base.html"%}
+{%load static%}
+{%load bootstrap4%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Document</title>
+</head>
+<body>
+    {%block content%}
+    {%include 'navbar.html'%}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p>New Posts</p>
+            </div>
+            <div class="col-md-2">Suggestions</div>
+
+        </div>
+    </div>
+    {%endblock%}
+    
+</body>
+</html>

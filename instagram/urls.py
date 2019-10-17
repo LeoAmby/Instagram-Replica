@@ -23,6 +23,7 @@ urlpatterns = [
     path('', start_views.signUp, name = "signUp"),
     # path('/login', start_views.login, name="login"),
     path('', include("django.contrib.auth.urls")),
+    path('home', start_views.home, name="home"),
     
     # path('', include('gramApp.urls')),
     # path('', include('startApp.urls')),

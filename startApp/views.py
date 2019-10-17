@@ -19,6 +19,10 @@ def signUp(response):
     return render(response, 'register/register.html', {'form':form})
 
 
+def home(request):
+    return redirect ('home')
+    return render (request, 'index.html')
+
 # def login(response):
 #     if response.method == 'POST':
 #         form = LoginForm(response.POST)
