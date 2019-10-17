@@ -31,8 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'bootstrap3',
+    'bootstrap4',
+    'startApp.apps.StartappConfig',
     'gramApp.apps.GramappConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -71,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'instagram.wsgi.application'
+# WSGI_APPLICATION = 'instagram.wsgi.application'
 
 
 # Database
@@ -134,3 +136,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

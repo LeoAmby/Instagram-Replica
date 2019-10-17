@@ -3,6 +3,8 @@ from .models import Image, Profile
 from gramApp.forms import signupForm
 from gramApp.tokens import account_activation_token
 from django.http import HttpResponse, Http404
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm 
 
 
 def home(request):
@@ -14,7 +16,7 @@ def home(request):
             form.save()
             # current_site = get_current_site(request)
             # subject = 'Activate Your instagram - Replica Account'
-        HttpResponseRedirect('home')
+        return redirect('home')
    
     else:
         form = signupForm()

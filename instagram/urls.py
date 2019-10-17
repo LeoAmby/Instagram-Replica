@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, register_converter
-from gramApp import views
+from gramApp import views 
+from startApp import views as start_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('gramApp.urls')),
+    # path('', include('gramApp.urls')),
+    # path('', include('startApp.urls')),
+    path('', start_views.signUp, name="signUp")
+    
 ]

@@ -1,5 +1,5 @@
 {%extends 'base.html'%}
-{%load bootstrap3%}
+{%load bootstrap4%}
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,8 @@
             </div>
             <div class="form-data">
                 
-                <form action="{%path 'home'%}" method="post">
+                <form action="" method="post">
+                    {{form}}
                     {%csrf_token%}
                     {%bootstrap_form signupForm %}
                     <div class="logo-">
