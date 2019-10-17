@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', include('gramApp.urls')),
     # path('', include('startApp.urls')),
-    path('', start_views.signUp, name="signUp")
+    path('', start_views.signUp, name="signUp"),
+    path('', include("django.contrib.auth.urls")),
     
 ]
