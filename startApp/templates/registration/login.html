@@ -9,16 +9,15 @@ Login
 {%block content%}
 <div class="container">
     <div class="row">
-        <div class="col-md-4"></div>
+        <div class="col-md-6"></div>
         <div class="col-md-4">
-    <form method="post" class="form-group">
-        {%csrf_token%}
-        {{form|crispy}}
-        <button trype="submit" class="btn btn-success">Login</button>
-        <p>Don't have an account? Create one <a href="{%url 'signUp'%}">Here</a></p>
-    </form>
-</div>
-<div class="col-md-4"></div>
-</div>
+            <form method="post" class="form-group">
+                {%csrf_token%}
+                {{form|crispy}}
+                <button type="submit" class="btn btn-success">Login</button>
+                <p>Don't have an account? Create one <a href="{%url 'signUp'%}">Here</a></p>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}

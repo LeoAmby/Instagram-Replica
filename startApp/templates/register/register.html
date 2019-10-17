@@ -8,15 +8,18 @@ Create an Account
 {%block content%}
 <div class="container">
     <div class="row">
-        <div class="col-md-6"></div>
+        <div class="col-md-4"></div>
         <div class="col-md-4">
 
             <form method='POST' class='form-group'>
                 {%csrf_token%}
                 {{ form|crispy }}
+                <p>Have an account? <a href="/login">HERE</a></p>
                 <button type='submit' class='btn btn-success'>Sign up</button>
             </form>
         </div>
+        <div class="col-md-4"></div>
+
     </div>
 </div>
 {%endblock%}

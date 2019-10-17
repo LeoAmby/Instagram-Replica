@@ -12,8 +12,20 @@ def signUp(response):
         if form.is_valid():
             form.save()
 
-        return redirect ('/signup')
+        return redirect ('login')
     else:
         form = SignupForm()
 
     return render(response, 'register/register.html', {'form':form})
+
+
+# def login(response):
+#     if response.method == 'POST':
+#         form = LoginForm(response.POST)
+#         if form.is_valid():
+#             form.save()
+
+#         return redirect ('profile')
+#     else:
+#         form = LoginForm()
+#     return render(response, 'registration/login.html', {'form':form})

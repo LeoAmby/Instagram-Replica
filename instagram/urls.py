@@ -20,9 +20,12 @@ from startApp import views as start_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', start_views.signUp, name = "signUp"),
+    # path('/login', start_views.login, name="login"),
+    path('', include("django.contrib.auth.urls")),
+    
     # path('', include('gramApp.urls')),
     # path('', include('startApp.urls')),
-    path('', start_views.signUp, name="signUp"),
-    path('', include("django.contrib.auth.urls")),
+    # path('/profile', views.profile, name='profile'),
     
 ]
