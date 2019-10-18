@@ -17,16 +17,21 @@ from django.contrib import admin
 from django.urls import path, include, register_converter
 from gramApp import views 
 from startApp import views as start_views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', start_views.signUp, name = "signUp"),
-    # path('/login', start_views.login, name="login"),
+    path('signUp', start_views.signUp, name = "signUp"),
     path('', include("django.contrib.auth.urls")),
-    path('home', start_views.home, name="home"),
-    
+    path('', start_views.home, name="home"),
+    path('profile', start_views.profile, name='profile')
     # path('', include('gramApp.urls')),
     # path('', include('startApp.urls')),
     # path('/profile', views.profile, name='profile'),
     
 ]
+
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
