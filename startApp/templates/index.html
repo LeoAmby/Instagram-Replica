@@ -3,26 +3,44 @@
 {%load bootstrap4%}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <title>Document</title>
 </head>
+
 <body>
     {%block content%}
     {%include 'navbar.html'%}
+    {%for post in posts%}
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <p>New Posts</p>
+            <article class="media content-section"></article>
+            <img class ="rounded-circle article-img" src="{{post.author.profile.image.url}}">    
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#"{{post.author}}></a>
+                    <small class="text-muted">{{post.date_posted|date:"F d, Y"}}</small>
+                    
+                </div>
+                <h2><a class = "article-title" href="#"> {{post.title}}</a></h2>
+                <p class="article-content">{{post.content}}</p>
             </div>
+                    <p>New Posts</p>
+                </div>
+            </article>
             <div class="col-md-2">Suggestions</div>
 
         </div>
     </div>
+
+    {%endfor%}
     {%endblock%}
-    
+
 </body>
+
 </html>

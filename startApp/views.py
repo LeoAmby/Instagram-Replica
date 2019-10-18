@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from .forms import SignupForm, UserUpdateForm, ProfileUpdateForm
-from gramApp.models import Image, Profile
 from gramApp.tokens import account_activation_token
 from django.http import HttpResponse, Http404
 from django.contrib.auth import login, authenticate
@@ -29,16 +28,18 @@ def home(request):
     return render (request, 'index.html')
 
 
-@login_required
+@login_required(login_url='login')
 def profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
-        p_form = ProfileUpdateForm(request.POST, request.FILES, 
-                                    instance=request.user.profile)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
     
-    if u_form.is_valid() and p_form.is_valid():
-        u_form.save()
-        p_form.save()
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('profile')
+
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)

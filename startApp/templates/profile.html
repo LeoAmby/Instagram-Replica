@@ -2,6 +2,8 @@
 {%load crispy_forms_tags%}
 {%block content%}
 {%include 'navbar.html'%}
+<div class="container">
+    <div class="row">
 <div class="content-section">
     <div class="media">
         <img class="rounded-circle account-img" src="{{user.profile.image.url}}">
@@ -22,5 +24,7 @@
         <button type='submit' class='btn btn-success'>Update</button>
     </div>
     </form>
+</div>
+</div>
 </div>
 {%endblock%}

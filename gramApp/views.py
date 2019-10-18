@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
-from .models import Image, Profile
-from gramApp.forms import signupForm
-from gramApp.tokens import account_activation_token
-from django.http import HttpResponse, Http404
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm 
+# from django.shortcuts import render, redirect
+# from .models import Image, Profile
+# from gramApp.forms import signupForm
+# from gramApp.tokens import account_activation_token
+# from django.http import HttpResponse, Http404
+# from django.contrib.auth import login, authenticate
+# from django.contrib.auth.forms import UserCreationForm 
 
 
 # def home(request):
@@ -23,5 +23,5 @@ from django.contrib.auth.forms import UserCreationForm
 #     return render(request, 'index.html')
 
 
-def userProfile(request):
-    return render(request, 'profile.html')
+# def userProfile(request):
+#     return render(request, 'profile.html')
