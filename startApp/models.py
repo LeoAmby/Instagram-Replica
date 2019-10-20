@@ -19,8 +19,16 @@ class Profile(models.Model):
             img.thumbnail(output_size)
             img.save(self.profPic.path)
 
+    def delete_profile(self):
+        self.delete()
 
-class Image(models.Model):
+    @classmethod
+    def search_profile(cls, name):
+        return cls.objects.filter(user__username__icontains=name).all()
+
+
+
+class ImagePost(models.Model):
     photo = models.ImageField(upload_to = 'images/', blank = True, null=True)
     name = models.CharField(max_length = 30)
     caption = models.CharField(max_length = 30)
@@ -43,5 +51,6 @@ class Image(models.Model):
 
     def delete_image(self):
         self.delete()
+
     
     

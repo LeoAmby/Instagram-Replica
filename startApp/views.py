@@ -1,19 +1,23 @@
 from django.shortcuts import render, redirect
-from .forms import SignupForm, UserUpdateForm, ProfileUpdateForm
+from .forms import SignupForm, UserUpdateForm, ProfileUpdateForm, ImagePostForm
 from gramApp.tokens import account_activation_token
 from django.http import HttpResponse, Http404
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from .models import ImagePost, Profile
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 
-def signUp(response):
-    if response.method == 'POST':
-        form = SignupForm(response.POST)
+def signUp(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
             messages.success(request, f'Your account has been created successfully!')
 
 
@@ -21,10 +25,27 @@ def signUp(response):
     else:
         form = SignupForm()
 
-    return render(response, 'register/register.html', {'form':form})
+    return render(request, 'register/register.html', {'form':form})
 
 
 def home(request):
+    photos = ImagePost.objects.all()
+    users = User.objects.exclude(id=request.user.id)
+    if request.method == 'POST':
+        form = ImagePostForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.user = request.user.profile
+            image.save()
+            return HttpResponseRedirect (request.path_info)
+
+    else:
+        form = ImagePostForm()
+    params = {
+        'photos': photos,
+        'form': form,
+        'users': users,
+    }
     return render (request, 'index.html')
 
 
@@ -50,6 +71,23 @@ def profile(request):
     return render(request, 'profile.html', context)
 
 
+
+
+@login_required(login_url='login')
+def search_profile(request):
+    if 'search_user' in request.GET and request.GET['search_user']:
+        name = request.GET.get("search_user")
+        results = Profile.search_profile(name)
+        print(results)
+        message = f'name'
+        params = {
+            'results': results,
+            'message': message
+        }
+        return render(request, 'search.html', params)
+    else:
+        message = "You haven't searched for any image category"
+    return render(request, 'search.html', {'message': message})
 
 # def login(response):
 #     if response.method == 'POST':

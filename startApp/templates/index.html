@@ -15,31 +15,38 @@
 <body>
     {%block content%}
     {%include 'navbar.html'%}
-    {%for post in posts%}
+
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-            <article class="media content-section"></article>
-            <img class ="rounded-circle article-img" src="{{post.author.profile.image.url}}">    
-            <div class="media-body">
-                <div class="article-metadata">
-                    <a class="mr-2" href="#"{{post.author}}></a>
-                    <small class="text-muted">{{post.date_posted|date:"F d, Y"}}</small>
-                    
-                </div>
-                <h2><a class = "article-title" href="#"> {{post.title}}</a></h2>
-                <p class="article-content">{{post.content}}</p>
-            </div>
+                {%for photo in photos%}
+                <div class="card mb-4">
+                    <div class="card-title">
+                        <img src="{{photo.user.profile.profPic.url}}" class="rounded-circle border ml-3 mt-2  mr-3"
+                            alt="{{photo.user.username}}" width="35" height="35">
+                        <a href="{% url 'user_profile' photo.user.username  %}"
+                            class="mt-4 user">{{photo.user.username}}</a>
+                    </div>
+                    {% endfor %}
+                    <article class="media content-section"></article>
+                    <img class="rounded-circle article-img" src="{{photo.user.profile.photo.url}}">
+                    <div class="media-body">
+                        <div class="article-metadata">
+                            <a class="mr-2" href="#" {{image.user}}></a>
+
+                        </div>
+                        <h2><a class="ImagePost-title" href="#"> {{ImagePost.photo}}</a></h2>
+                        <p class="image-content">{{photo.caption}}</p>
+                    </div>
                     <p>New Posts</p>
                 </div>
-            </article>
-            <div class="col-md-2">Suggestions</div>
+                </article>
+                <div class="col-md-2">Suggestions</div>
 
+            </div>
         </div>
-    </div>
 
-    {%endfor%}
-    {%endblock%}
+        {%endblock%}
 
 </body>
 

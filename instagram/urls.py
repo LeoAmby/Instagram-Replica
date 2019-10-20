@@ -26,7 +26,8 @@ urlpatterns = [
     path('signUp', start_views.signUp, name = "signUp"),
     path('', include("django.contrib.auth.urls")),
     path('', start_views.home, name="home"),
-    path('profile', start_views.profile, name='profile')
+    path('profile', start_views.profile, name='profile'),
+    path('search/', start_views.search_profile, name='search'),
     # path('', include('gramApp.urls')),
     # path('', include('startApp.urls')),
     # path('/profile', views.profile, name='profile'),
