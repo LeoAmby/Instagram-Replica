@@ -27,7 +27,7 @@ def signUp(request):
 
     return render(request, 'register/register.html', {'form':form})
 
-
+@login_required(login_url='register')
 def home(request):
     photos = ImagePost.objects.all()
     users = User.objects.exclude(id=request.user.id)
