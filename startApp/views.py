@@ -78,7 +78,7 @@ def search_profile(request):
     if 'search_user' in request.GET and request.GET['search_user']:
         name = request.GET.get("search_user")
         results = Profile.search_profile(name)
-        print(results)
+        # print(results)
         message = f'name'
         params = {
             'results': results,
@@ -93,13 +93,3 @@ def search_profile(request):
 
 
 
-# def login(response):
-#     if response.method == 'POST':
-#         form = LoginForm(response.POST)
-#         if form.is_valid():
-#             form.save()
-
-#         return redirect ('profile')
-#     else:
-#         form = LoginForm()
-#     return render(response, 'registration/login.html', {'form':form})
