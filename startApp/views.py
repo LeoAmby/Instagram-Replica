@@ -27,7 +27,7 @@ def signUp(request):
 
     return render(request, 'register/register.html', {'form':form})
 
-
+@login_required(login_url='login')
 def home(request):
     photos = ImagePost.objects.all()
     users = User.objects.exclude(id=request.user.id)
@@ -88,6 +88,8 @@ def search_profile(request):
     else:
         message = "You haven't searched for any image category"
     return render(request, 'search.html', {'message': message})
+
+
 
 # def login(response):
 #     if response.method == 'POST':

@@ -34,7 +34,11 @@ class ImagePost(models.Model):
     caption = models.CharField(max_length = 30)
     profile = models.ForeignKey(User, on_delete=models.CASCADE,)
     comments = models.TextField()
-    likes = models.IntegerField(default=0)
+    likes = models.ManyToManyField(User, related_name='likes', blank = True)
+    
+    def total_likes(self):
+        self.likes.count()
+
 
 
     # class Meta:                           #This class makes sure that the name of the model ImagePost is simplified to 'Post' in the database

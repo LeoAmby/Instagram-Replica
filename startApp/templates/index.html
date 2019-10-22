@@ -19,34 +19,38 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
+                    <p>New Posts</p>
                 {%for imagepost in photos %}
                 <div class="card mb-4">
                     <div class="card-title">
-                        <img src="{{profile.profpic.url}}" class="rounded-circle border ml-3 mt-2  mr-3"
+                        <img src="{{imagepost.photo.url}}" class="rounded-circle border ml-3 mt-2  mr-3"
                             width="35" height="35">
-                        <!-- <a href="">
-                         url 'user_profile' photo.user.username  
+                        <p><a href="{{imagepost.username.url}}"></a></p>
+                         <!-- url 'user_profile' photo.user.username  
                             class="mt-4 user">{{photo.user.username.url}}</a> -->
                     </div>
-                    {% endfor %}
-                    <article class="media content-section"></article>
-                    <img class="rounded-circle article-img" src="{{imagepost.photo.url}}">
+                   
+                    <!-- <article class="media content-section"></article>
+                    <img class="rounded-circle article-img" src="{{imagepost.photo.url}}"> -->
                     <div class="media-body">
-                        <div class="article-metadata">
-                            <a class="mr-2" href="#" {{image.user}}></a>
-
+                            <img src="{{imagepost.photo.url}}">
+                            
                         </div>
                         <h2><a class="ImagePost-title" href="#"> {{ImagePost.photo.url}}</a></h2>
                         <p class="image-content">{{photo.caption}}</p>
                     </div>
-                    <p>New Posts</p>
+                    
+                    {% endfor %}
+                    
                 </div>
+                
                 </article>
-                <div class="col-md-2">Suggestions</div>
-
+                
+                
             </div>
+            <!-- <div class="col-md-2">Suggestions</div> -->
         </div>
-
+</div>
         {%endblock%}
 
 </body>
