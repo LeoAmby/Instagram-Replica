@@ -2,14 +2,24 @@ body {
     background-color: rgb(243, 245, 247);
 }
 .container-fluid {
-    /* background-color: white;
-    height:100px;
-    border: none; */
+    
+    /* border: none; */
     box-shadow: 5px 5px 5px gray;
+    background-color: white;
+    height:100px;
+    top:0;
     
 }
 .container {
     margin-left: 100px;
+}
+
+.card-footer > img {
+    width:25px;
+}
+
+#posts {
+    margin:80px;
 }
 #form{
     margin:20px;
@@ -48,6 +58,16 @@ h3 {
 }
 .navbar-form {
     float:right;
+
+}
+.button {
+    background-color: blue;
+    border-radius: 5px;
+    padding:5px;
+    margin-left: 10px;
+}
+.like {
+    width:50px;
 }
 .logo > img {
     width:17.5rem;

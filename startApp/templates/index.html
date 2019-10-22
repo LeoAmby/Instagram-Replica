@@ -18,7 +18,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" id="posts">
                     <p>New Posts</p>
                 {%for imagepost in photos %}
                 <div class="card mb-4">
@@ -36,7 +36,10 @@
                             <img src="{{imagepost.photo.url}}">
                             
                         </div>
-
+                        <div class="card-footer">
+                            <a href="#"><img class="like" src="{%static 'images/like.png'%}"></a>
+                            <button class="button">comment</button>
+                        </div>
                     
                         <h2><a class="ImagePost-title" href="#"> {{ImagePost.photo.url}}</a></h2>
                         <p class="image-content">{{photo.caption}}</p>
