@@ -1,36 +1,42 @@
 import os
 import django_heroku
 import dj_database_url
-from decouple import config,Csv
+from decouple import config, Csv
+from dotenv import load_dotenv
+DEBUG = True  
+  
+# load_dotenv()
 
-MODE=config("MODE", default="dev")
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
-# development
-if config('MODE')=="dev":
-   DATABASES = {
-       'default': {
-           'ENGINE': 'django.db.backends.postgresql_psycopg2',
-           'NAME': config('DB_NAME'),
-           'USER': config('DB_USER'),
-           'PASSWORD': config('DB_PASSWORD'),
-           'HOST': config('DB_HOST'),
-           'PORT': '',
-       }
-       
-   }
-# production
-else:
-   DATABASES = {
-       'default': dj_database_url.config(
-           default=config('DATABASE_URL')
-       )
-   }
+# MODE=config("MODE", default="dev")
+# SECRET_KEY = config('SECRET_KEY')
+# DEBUG = config('DEBUG', default=False, cast=bool)
+# # development
+# if config("MODE")=="dev":
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',  
+#             'NAME': config('DB_NAME'),  
+#             'USER': config('DB_USER'),  
+#             'PASSWORD': config('DB_PASSWORD'),  
+#             'HOST': config('DB_HOST'),
+#             'PORT': '',
+#     }
+# }
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+# else:
+#     DATABASES = {
+#         'default':dj_database_url.config(
+#             default=config('DATABASE_URL')) 
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+#     } 
+
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
+
+# # ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+
+
+
 
     
 # Build paths inide the project like this: os.path.join(BASE_DIR, ...)
@@ -46,13 +52,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Application definition
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '5y=(!7hcwto1ciqv94e&#wf^wm2o2qe$4t3@4y$!lxba21c2b+'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'bootstrap4',
@@ -101,6 +100,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'instagram.wsgi.application'
 
+SECRET_KEY='5y=(!7hcwto1ciqv94e&#wf^wm2o2qe$4t3@4y$!lxba21c2b+'
+
+# Database
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',  
+        'NAME': config('DB_NAME'),  
+        'USER': config('DB_USER'),  
+        'PASSWORD': config('DB_PASSWORD'),  
+        'HOST': config('DB_HOST'),
+    }
+}
+db_env = dj_database_url.config(conn_max_age=500)  
+DATABASES['default'].update(db_env)  
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -138,8 +155,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-
-
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
@@ -159,4 +174,4 @@ LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
 # Configure Django App for Heroku.
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
