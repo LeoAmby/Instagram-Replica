@@ -46,7 +46,7 @@ def home(request):
         'form': form,
         'users': users,
     }
-    return render (request, 'index.html')
+    return render (request, 'index.html', params)
 
 
 @login_required(login_url='login')

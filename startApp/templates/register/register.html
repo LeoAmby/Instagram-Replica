@@ -1,5 +1,7 @@
 {% extends 'base.html'%}
+
 {%block title%}
+{%load static%}
 Create an Account
 {%endblock%}
 {%load crispy_forms_tags%}
@@ -8,17 +10,23 @@ Create an Account
 {%block content%}
 <div class="container">
     <div class="row">
-        <div class="col-md-4"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <img src="{%static 'images/simuz.png'%}">
+        </div>
         <div class="col-md-4">
 
             <form method='POST' class='form-group'>
+                <!-- <p><h3 style="font-family: 'Lobster Two', cursive; align-content: center; margin-left:20px; color: blue; " >Instagram</h3></p> -->
                 {%csrf_token%}
                 {{ form|crispy }}
-                <p>Have an account? <a href="/login">HERE</a></p>
-                <button type='submit' class='btn btn-success'>Sign up</button>
+                <p>Have an account? <a href="/login">Login HERE</a></p>
+                <button id="btn" type='submit' class='btn btn-success'>Sign up</button>
             </form>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-1"></div>
+
+        
 
     </div>
 </div>
