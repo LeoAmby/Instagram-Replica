@@ -7,7 +7,7 @@ django-bootstrap4==1.0.1
 django-crispy-forms==1.7.2
 django-heroku==0.3.1
 django-mathfilters==0.4.0
-django-registration==2.4.1
+django-registration==3.1.2
 djangorestframework==3.10.3
 gunicorn==19.9.0
 Pillow==6.2.0
